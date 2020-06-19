@@ -208,6 +208,8 @@ typedef struct {
 } pulseProcessorV2_t;
 
 typedef struct pulseProcessor_s {
+  bool receivedBsSweep[PULSE_PROCESSOR_N_BASE_STATIONS];
+
   union {
     struct {
       pulseProcessorV1_t v1;
@@ -272,3 +274,11 @@ void pulseProcessorApplyCalibration(pulseProcessor_t *state, pulseProcessorResul
  * @param baseStation
  */
 void pulseProcessorClear(pulseProcessorResult_t* angles, int baseStation);
+
+/**
+ * @brief Clear result struct
+ *
+ * @param angles
+ * @param baseStation
+ */
+void pulseProcessorAllClear(pulseProcessorResult_t* angles);
